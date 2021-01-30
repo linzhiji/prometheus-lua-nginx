@@ -24,11 +24,11 @@ local function split(inputstr, sep)
 end
 local function parse_fullurl(request_uri)
     result_table = {}
-    if string.find(request_uri, "%.") ~= nil then
+    if string.find(request_uri, "%.") == nil then
        return nil
     end
     parts = split(request_uri, "/")
-    if table.getn(parts) == 1 then
+    if #parts == 1 then
        return nil
     end
     for j=1, #parts do
